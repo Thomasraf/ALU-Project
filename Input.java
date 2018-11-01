@@ -47,7 +47,7 @@ public class Input {
 
 	public String e(String base2) {
 		int i = Integer.parseInt(base2);
-		int ePrime = i + 101; //108 
+		int ePrime = i + 398; //108 
 		String ePrimeBinary = Integer.toBinaryString(ePrime); //01101100
 		return ePrimeBinary; 
 	}
