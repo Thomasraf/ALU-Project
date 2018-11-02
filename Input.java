@@ -39,7 +39,7 @@ public class Input {
 								int index = half1.indexOf('.'); //This gets the index of the '.' which is 7 in this case
 								int adder = (total - 1) - index; //So it will be 11 - 7		
 								
-								movingDecimal(half1, index); //This is to move the decimal point to the end
+								movingDecimal(half1, index); //This is to move the decimal point to the end //~~~~~NELLO THIS IS WHERE I LEFT OFF~~~~~
 								
 								eSpecial(base2, adder); //This is simply E' = E + 398 but placed in a function to make it cleaner, but with the addition of a moved decimal point 
 								String finalMSD = Integer.toBinaryString(MSD);
