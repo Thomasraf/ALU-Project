@@ -25,16 +25,25 @@ public class Input {
 				String base2 = base[1]; //7
 				
 				if(this.getfloatingPoint().contains("x") == true && half1.matches("[01]+") && !half1.startsWith("0")
-						&& half1.length() == 16) { //to check if a base was inputed and if it is not binary
+						&& half1.length() == 16) { //to check if a base was inputed and if the input was decimal, and NOT binary
 					if(this.getfloatingPoint().charAt(0) != '-') { //positive sign bit 
 						char stringMSD = half1.charAt(0); // 7
 						int MSD = Integer.parseInt(String.valueOf(stringMSD));
+						
 						if(MSD < 8) { //If MSD is less than 8 rule
+							
+							if(half1.contains("\\.") == true) { //this is if the input has a "." which we have to move to increase the exponent count
+								int decimalPoint = half1.indexOf('.'); //To find where exactly in the String is the decimal point 
+								int length = half1.length();
+							}
+							
 							e(base2);
 							String finalMSD = Integer.toBinaryString(MSD);
-							String x0 = Character.toString(base2.charAt(0)); String x1 = Character.toString(base2.charAt(1)); String x2 = Character.toString(finalMSD.charAt(1)); String x3 = Character.toString(finalMSD.charAt(2));
-							String x4 = Character.toString(finalMSD.charAt(3));
+							String x0 = Character.toString(base2.charAt(0)); String x1 = Character.toString(base2.charAt(1)); String x2 = Character.toString(finalMSD.charAt(1)); 
+							String x3 = Character.toString(finalMSD.charAt(2));	String x4 = Character.toString(finalMSD.charAt(3));
 							String combinationField = x0 + x1 + x2 + x3 + x4; //To add all the bits but I'm sorry if it's brute force
+							
+								
 						}
 					}
 				}
