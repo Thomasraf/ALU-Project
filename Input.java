@@ -2,7 +2,7 @@ import java.util.*;
 public class Input {
 	private String floatingPoint;
 	private boolean found = false;
-
+	
 	String getfloatingPoint() {
 		return floatingPoint;
 	}
@@ -39,7 +39,9 @@ public class Input {
 								int index = half1.indexOf('.'); //This gets the index of the '.' which is 7 in this case
 								int adder = (total - 1) - index; //So it will be 11 - 7		
 								
-								eSpecial(base2, adder);
+								movingDecimal(half1, index); //This is to move the decimal point to the end
+								
+								eSpecial(base2, adder); //This is simply E' = E + 398 but placed in a function to make it cleaner, but with the addition of a moved decimal point 
 								String finalMSD = Integer.toBinaryString(MSD);
 								String x0 = Character.toString(base2.charAt(0)); String x1 = Character.toString(base2.charAt(1)); String x2 = Character.toString(finalMSD.charAt(1)); 
 								String x3 = Character.toString(finalMSD.charAt(2));	String x4 = Character.toString(finalMSD.charAt(3));
@@ -47,15 +49,16 @@ public class Input {
 								}
 							
 							else { //If this is the input 7123456555777666
-								e(base2);
+								e(base2); //This is simply E' = E + 398 but placed in a function to make it cleaner
 								String finalMSD = Integer.toBinaryString(MSD);
 								String x0 = Character.toString(base2.charAt(0)); String x1 = Character.toString(base2.charAt(1)); String x2 = Character.toString(finalMSD.charAt(1)); 
 								String x3 = Character.toString(finalMSD.charAt(2));	String x4 = Character.toString(finalMSD.charAt(3));
 								String combinationField = x0 + x1 + x2 + x3 + x4; //To add all the bits but I'm sorry if it's brute force
 							}
 								
-						}
-					}
+						
+						} //This is where if(MSD < 8) ends
+					} //This is where the if(this.getfloatingPoint().charAt(0) != '-') ends
 				}
 				
 					
@@ -76,6 +79,15 @@ public class Input {
 		int ePrime = i + 398 + adder; 
 		String ePrimeBinary = Integer.toBinaryString(ePrime); //01101100
 		return ePrimeBinary; 
+	}
+	
+	private String movingDecimal(String half1, int index) {
+		int decimal = Integer.parseInt(half1);
+		for(int i = 0; i < 4; i++) {
+			decimal = decimal * 10;
+		}
+		String newHalf1 = Integer.toString(decimal);
+		return newHalf1;
 	}
 	
 }
