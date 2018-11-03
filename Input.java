@@ -39,13 +39,20 @@ public class Input {
 								int index = half1.indexOf('.'); //This gets the index of the '.' which is 7 in this case
 								int adder = (total - 1) - index; //So it will be 11 - 7		
 								
-								movingDecimal(half1, index); //This is to move the decimal point to the end //~~~~~NELLO THIS IS WHERE I LEFT OFF~~~~~
+								String true_half1 = movingDecimal(half1, index); //This is to move the decimal point to the end 
+								true_half1.replace("\\.", ""); //This is to remove the decimal point at the end
+								
+								if(true_half1.length() != 15) { //This is to place the 0's in front of the number if it is not already 16 ~~~NELLO THERE IS WHERE I STOPPED~~~
+									true_half1 = placingZero(true_half1);
+								}
 								
 								eSpecial(base2, adder); //This is simply E' = E + 398 but placed in a function to make it cleaner, but with the addition of a moved decimal point 
 								String finalMSD = Integer.toBinaryString(MSD);
 								String x0 = Character.toString(base2.charAt(0)); String x1 = Character.toString(base2.charAt(1)); String x2 = Character.toString(finalMSD.charAt(1)); 
 								String x3 = Character.toString(finalMSD.charAt(2));	String x4 = Character.toString(finalMSD.charAt(3));
 								String combinationField = x0 + x1 + x2 + x3 + x4; //To add all the bits but I'm sorry if it's brute force
+								
+								
 								}
 							
 							else { //If this is the input 7123456555777666
@@ -88,6 +95,13 @@ public class Input {
 		}
 		String newHalf1 = Integer.toString(decimal);
 		return newHalf1;
+	}
+	
+	private String placingZero(String x) {
+		while(x.length() != 15) {
+			x = 0 + x;
+		}
+		return x;
 	}
 	
 }
