@@ -50,6 +50,11 @@ public class Input {
 									String x3 = Character.toString(finalMSD.charAt(2));	String x4 = Character.toString(finalMSD.charAt(3));
 									String combinationField = x0 + x1 + x2 + x3 + x4; //To add all the bits but I'm sorry if it's brute force
 								}
+								else if(MSD == 8 || MSD == 9) {
+									String x2 = Character.toString(finalMSD.charAt(1)); 
+									String x3 = Character.toString(finalMSD.charAt(2));	String x4 = Character.toString(finalMSD.charAt(3));
+									String combinationField = 1 + 1 + x2 + x3 + x4;
+								}
 						}
 						
 						else {
@@ -69,6 +74,11 @@ public class Input {
 								String x0 = Character.toString(base2.charAt(0)); String x1 = Character.toString(base2.charAt(1)); String x2 = Character.toString(finalMSD.charAt(1)); 
 								String x3 = Character.toString(finalMSD.charAt(2));	String x4 = Character.toString(finalMSD.charAt(3));
 								String combinationField = x0 + x1 + x2 + x3 + x4; //To add all the bits but I'm sorry if it's brute force
+							}
+							else if(MSD == 8 || MSD == 9) {
+								String x2 = Character.toString(finalMSD.charAt(1)); 
+								String x3 = Character.toString(finalMSD.charAt(2));	String x4 = Character.toString(finalMSD.charAt(3));
+								String combinationField = 1 + 1 + x2 + x3 + x4;
 							}
 							
 						}
